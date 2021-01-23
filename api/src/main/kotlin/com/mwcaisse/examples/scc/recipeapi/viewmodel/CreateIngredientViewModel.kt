@@ -1,6 +1,5 @@
 package com.mwcaisse.examples.scc.recipeapi.viewmodel
 
-data class IngredientViewModel(
-    val id : Long,
+data class CreateIngredientViewModel(
     val description: String
 )

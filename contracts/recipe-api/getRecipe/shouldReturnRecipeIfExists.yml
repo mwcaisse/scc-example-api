@@ -1,0 +1,37 @@
+request:
+  method: GET
+  url: /api/recipe/1
+  headers:
+    Accept: application/json
+
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body:
+    id: 1
+    name: Fluffy Panckes
+    descriptions: They are pancakes, what else do you need to know?
+    prepTime: 5
+    cookTime: 20
+    servings: 6
+    servingsUnit: panckes
+    steps:
+      - id: 1
+        order: 1
+        description: Mix up the flour and stuff
+      - id: 2
+        order: 2
+        description: Whisk up the eggs and stuff
+      - id: 3
+        order: 3
+        description: Pour the mixed and whisked stuff onto a pan
+    ingredients:
+      - id: 1
+        description: 10 cups flour
+      - id: 2
+        description: 15 eggs
+      - id: 3
+        description: 20 cups sugar
+
+

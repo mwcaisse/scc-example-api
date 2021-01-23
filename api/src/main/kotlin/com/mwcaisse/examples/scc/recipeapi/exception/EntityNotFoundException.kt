@@ -1,4 +1,4 @@
 package com.mwcaisse.examples.scc.recipeapi.exception
 
-class EntityNotFoundException {
+class EntityNotFoundException : Throwable() {
 }

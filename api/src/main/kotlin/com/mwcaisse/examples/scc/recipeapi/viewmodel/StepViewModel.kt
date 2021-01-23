@@ -1,4 +1,7 @@
 package com.mwcaisse.examples.scc.recipeapi.viewmodel
 
-class StepViewModel {
-}
+data class StepViewModel(
+    val id: Long,
+    val order: Int,
+    val description: String
+)

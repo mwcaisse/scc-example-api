@@ -1,0 +1,8 @@
+request:
+  method: GET
+  url: /api/recipe/500
+  headers:
+    Accept: application/json
+
+response:
+  status: 404

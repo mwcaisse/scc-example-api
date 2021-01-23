@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.5.0-M1"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	id("org.springframework.cloud.contract") version "3.0.0"
 	kotlin("jvm") version "1.4.21-2"
 	kotlin("plugin.spring") version "1.4.21-2"
 }
@@ -34,6 +35,10 @@ dependencyManagement {
 	}
 }
 
+contracts {
+	setTestFramework(org.springframework.cloud.contract.verifier.config.TestFramework.JUNIT5)
+	setContractsDslDir(file("${project.projectDir}/../contracts/recipe-api/"))
+}
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")

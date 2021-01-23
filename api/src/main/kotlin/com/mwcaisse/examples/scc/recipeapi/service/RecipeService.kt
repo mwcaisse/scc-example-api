@@ -1,9 +1,6 @@
 package com.mwcaisse.examples.scc.recipeapi.service
 
-import com.mwcaisse.examples.scc.recipeapi.viewmodel.CreateRecipeViewModel
-import com.mwcaisse.examples.scc.recipeapi.viewmodel.IngredientViewModel
-import com.mwcaisse.examples.scc.recipeapi.viewmodel.RecipeViewModel
-import com.mwcaisse.examples.scc.recipeapi.viewmodel.StepViewModel
+import com.mwcaisse.examples.scc.recipeapi.viewmodel.*
 
 interface RecipeService {
 
@@ -15,11 +12,11 @@ interface RecipeService {
 
     fun delete(id: Long)
 
-    fun addIngredient(id : Long, ingredient: IngredientViewModel) : IngredientViewModel
+    fun addIngredient(id : Long, ingredient: CreateIngredientViewModel) : IngredientViewModel
 
     fun deleteIngredient(id: Long, ingredientId: Long)
 
-    fun addStep(id : Long, step: StepViewModel) : StepViewModel
+    fun addStep(id : Long, step: CreateStepViewModel) : StepViewModel
 
     fun deleteStep(id : Long, stepId : Long)
 

@@ -1,10 +1,7 @@
 package com.mwcaisse.examples.scc.recipeapi.controller
 
 import com.mwcaisse.examples.scc.recipeapi.service.RecipeService
-import com.mwcaisse.examples.scc.recipeapi.viewmodel.CreateRecipeViewModel
-import com.mwcaisse.examples.scc.recipeapi.viewmodel.IngredientViewModel
-import com.mwcaisse.examples.scc.recipeapi.viewmodel.RecipeViewModel
-import com.mwcaisse.examples.scc.recipeapi.viewmodel.StepViewModel
+import com.mwcaisse.examples.scc.recipeapi.viewmodel.*
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -34,7 +31,7 @@ class RecipeController(private val recipeService: RecipeService) {
     }
 
     @PostMapping("{id}/step/")
-    fun addStep(@PathVariable id: Long, @RequestBody step: StepViewModel) : ResponseEntity<StepViewModel> {
+    fun addStep(@PathVariable id: Long, @RequestBody step: CreateStepViewModel) : ResponseEntity<StepViewModel> {
         return ResponseEntity.ok(recipeService.addStep(id, step))
     }
 
@@ -46,7 +43,7 @@ class RecipeController(private val recipeService: RecipeService) {
 
 
     @PostMapping("{id}/ingredient/")
-    fun addIngredient(@PathVariable id: Long, @RequestBody ingredient: IngredientViewModel) : ResponseEntity<IngredientViewModel> {
+    fun addIngredient(@PathVariable id: Long, @RequestBody ingredient: CreateIngredientViewModel) : ResponseEntity<IngredientViewModel> {
         return ResponseEntity.ok(recipeService.addIngredient(id, ingredient))
     }
 
