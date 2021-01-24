@@ -6,8 +6,6 @@ interface RecipeService {
 
     fun get(id: Long) : RecipeViewModel
 
-    fun getAll() : List<RecipeViewModel>
-
     fun create(toCreate : CreateRecipeViewModel) : RecipeViewModel
 
     fun delete(id: Long)

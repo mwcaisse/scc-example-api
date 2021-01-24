@@ -1,11 +1,10 @@
 request:
   method: POST
-  url: /api/recipe/1/step/
+  url: /api/recipe/1/ingredient/
   headers:
     Accept: application/json
     Content-Type: application/json
   body:
-    order: 1
     description:
 
 response:

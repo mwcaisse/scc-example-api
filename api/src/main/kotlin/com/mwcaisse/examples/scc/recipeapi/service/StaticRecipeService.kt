@@ -57,10 +57,6 @@ class StaticRecipeService : RecipeService {
         )
     }
 
-    override fun getAll(): List<RecipeViewModel> {
-        TODO("Not yet implemented")
-    }
-
     override fun create(toCreate: CreateRecipeViewModel): RecipeViewModel {
         validateRecipe(toCreate)
 

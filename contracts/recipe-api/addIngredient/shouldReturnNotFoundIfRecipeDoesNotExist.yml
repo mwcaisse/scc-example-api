@@ -1,12 +1,11 @@
 request:
   method: POST
-  url: /api/recipe/1/step/
+  url: /api/recipe/500/ingredient/
   headers:
     Accept: application/json
     Content-Type: application/json
   body:
-    order: 1
-    description:
+    description: "10 Large Potatoes, unpeeled"
 
 response:
-  status: 400
+  status: 404

@@ -1,12 +1,8 @@
 request:
-  method: POST
-  url: /api/recipe/1/step/
+  method: DELETE
+  url: /api/recipe/1/step/1
   headers:
     Accept: application/json
     Content-Type: application/json
-  body:
-    order: 1
-    description:
-
 response:
-  status: 400
+  status: 200

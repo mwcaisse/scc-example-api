@@ -1,0 +1,16 @@
+request:
+  method: POST
+  url: /api/recipe/1/ingredient/
+  headers:
+    Accept: application/json
+    Content-Type: application/json
+  body:
+    description: 10 Large Potatoes, unpeeled
+
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body:
+    id: 1
+    description: 10 Large Potatoes, unpeeled
