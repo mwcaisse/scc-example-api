@@ -152,17 +152,25 @@ want to be informed here that it is now a string.
 ### API
 
 To generate the contract tests and execute the contract tests simply run
-`gradle assemble`
+```bash
+gradle assemble
+```
 
 ### UI
 
 To run contract tests
 
 First start the stubrunner.
-`./run_stubrunner`
+```bash
+./run_stubrunner
+```
 Note: If you are getting a git auth error, this assumes that you have SSH auth for github.com setup. Your SSH key
 might need to be added to your SSH agent explicitly:
-`ssh-add -K <path-to-private-key>`
+```bash
+ssh-add -K <path-to-private-key>
+```
 
 Then run the tests
-`yarn test`
+```bash
+yarn test
+```
