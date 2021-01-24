@@ -1,12 +1,18 @@
-
 import {RecipeService} from "@app/services/ApplicationProxy";
+
+const recipeService = new RecipeService("http://localhost:8950/api/");
 
 describe("getRecipe", () => {
 
-    const recipeService = new RecipeService("http://localhost:8950/api/");
-
     test("returnsNotFoundWhenRecipeNotFound", async () => {
-        await expect(recipeService.get(500)).rejects.toThrow();
+        try {
+            await recipeService.get(500);
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(404);
+        }
+
     })
 
     test("shouldReturnRecipeIfExists", async () => {
@@ -37,4 +43,49 @@ describe("getRecipe", () => {
         expect(ingredients[0].id).toBeDefined();
         expect(ingredients[0].description).toBeDefined();
     });
-})
+});
+
+describe("createRecipe", () => {
+
+    test("returnsBadRequestWhenInvalidRecipeGiven", async () => {
+        try {
+            await recipeService.create({
+                name: null,
+                description: null,
+                prepTime: 20,
+                cookTime: 60,
+                servings: 10,
+                servingsUnit: "people"
+            });
+
+            //if we get here, it didn't throw an error
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(400);
+        }
+    });
+
+    test("returnsOkWhenGivenValidRecipeToCreate", async () => {
+        let created = await recipeService.create({
+            name: "Potato Salad",
+            description: "Salad that is made of Potatoes and a whole lot of eggs",
+            prepTime: 20,
+            cookTime: 60,
+            servings: 10,
+            servingsUnit: "people"
+        });
+
+        expect(created).toBeDefined();
+
+        expect(created.id).toBeDefined();
+        expect(created.name).toBeDefined();
+        expect(created.description).toBeDefined();
+        expect(created.prepTime).toBeDefined();
+        expect(created.cookTime).toBeDefined();
+        expect(created.servings).toBeDefined();
+        expect(created.servingsUnit).toBeDefined();
+    });
+});
+
+
