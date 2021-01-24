@@ -1,0 +1,6 @@
+request:
+  method: DELETE
+  url: /api/recipe/1
+
+response:
+  status: 200

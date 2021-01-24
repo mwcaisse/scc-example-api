@@ -1,0 +1,8 @@
+request:
+  method: DELETE
+  url: /api/recipe/500
+  headers:
+    Accept: application/json
+
+response:
+  status: 404

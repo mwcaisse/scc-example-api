@@ -25,8 +25,8 @@ class RecipeController(private val recipeService: RecipeService) {
         return ResponseEntity.ok(recipeService.create(recipe))
     }
 
-    @DeleteMapping("{id")
-    fun deleteRecipe(id: Long) : ResponseEntity<Void> {
+    @DeleteMapping("{id}")
+    fun deleteRecipe(@PathVariable id: Long) : ResponseEntity<Void> {
         recipeService.delete(id)
         return ResponseEntity.ok().build()
     }

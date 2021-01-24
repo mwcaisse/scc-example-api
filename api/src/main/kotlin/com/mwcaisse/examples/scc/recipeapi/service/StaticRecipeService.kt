@@ -64,7 +64,9 @@ class StaticRecipeService : RecipeService {
     }
 
     override fun delete(id: Long) {
-        TODO("Not yet implemented")
+        if (1L != id) {
+            throw EntityNotFoundException("Recipe", id)
+        }
     }
 
     override fun addIngredient(id: Long, ingredient: CreateIngredientViewModel): IngredientViewModel {
