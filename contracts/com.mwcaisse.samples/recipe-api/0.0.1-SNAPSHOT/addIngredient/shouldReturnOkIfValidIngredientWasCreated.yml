@@ -6,6 +6,10 @@ request:
     Content-Type: application/json
   body:
     description: 10 Large Potatoes, unpeeled
+  matchers:
+    headers:
+      - key: Accept
+        regex: .*application/json.*
 
 response:
   status: 200

@@ -3,6 +3,10 @@ request:
   url: /api/recipe/500
   headers:
     Accept: application/json
+  matchers:
+    headers:
+      - key: Accept
+        regex: .*application/json.*
 
 response:
   status: 404

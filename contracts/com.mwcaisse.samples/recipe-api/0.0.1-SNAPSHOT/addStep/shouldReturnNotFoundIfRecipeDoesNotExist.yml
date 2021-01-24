@@ -7,6 +7,10 @@ request:
   body:
     order: 1
     description: Peel all dem potats
+  matchers:
+    headers:
+      - key: Accept
+        regex: .*application/json.*
 
 response:
   status: 404
