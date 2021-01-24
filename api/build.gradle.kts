@@ -39,7 +39,7 @@ dependencyManagement {
 
 contracts {
 	setTestFramework(org.springframework.cloud.contract.verifier.config.TestFramework.JUNIT5)
-	setContractsDslDir(file("${project.projectDir}/../contracts/recipe-api/"))
+	setContractsDslDir(file("${project.projectDir}/../contracts/com.mwcaisse.samples/recipe-api/0.0.1-SNAPSHOT/"))
 	//setBasePackageForTests("com.mwcaisse.examples.scc.recipeapi.contract")
 	//setPackageWithBaseClasses("com.mwcaisse.examples.scc.recipeapi.contract")
 	setBaseClassForTests("com.mwcaisse.examples.scc.recipeapi.contract.BaseContractTest")
