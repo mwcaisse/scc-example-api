@@ -6,7 +6,7 @@ request:
   matchers:
     headers:
       - key: Accept
-        regex: application/json.*
+        regex: .*application/json.*
 
 response:
   status: 200

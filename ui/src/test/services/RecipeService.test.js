@@ -3,7 +3,7 @@ import {RecipeService} from "@app/services/ApplicationProxy";
 
 describe("getRecipe", () => {
 
-    const recipeService = new RecipeService("http://localhost:8080/api/");
+    const recipeService = new RecipeService("http://localhost:8950/api/");
 
     test("returnsNotFoundWhenRecipeNotFound", async () => {
         await expect(recipeService.get(500)).rejects.toThrow();
