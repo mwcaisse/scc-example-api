@@ -1,0 +1,12 @@
+request:
+  method: POST
+  url: /api/recipe/500/step/
+  headers:
+    Accept: application/json
+    Content-Type: application/json
+  body:
+    order: 1
+    description: Peel all dem potats
+
+response:
+  status: 404

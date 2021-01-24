@@ -1,0 +1,16 @@
+request:
+  method: POST
+  url: /api/recipe/
+  headers:
+    Accept: application/json
+    Content-Type: application/json
+  body:
+    name:
+    description:
+    prepTime: 20
+    cookTime: 60
+    servings: 10
+    servingsUnit: people
+
+response:
+  status: 400

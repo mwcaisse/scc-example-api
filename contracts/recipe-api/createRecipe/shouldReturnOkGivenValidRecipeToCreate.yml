@@ -1,0 +1,28 @@
+request:
+  method: POST
+  url: /api/recipe/
+  headers:
+    Accept: application/json
+    Content-Type: application/json
+  body:
+    name: Potato Salad
+    description: Salad that is made of Potatoes and a whole lot of eggs
+    prepTime: 20
+    cookTime: 60
+    servings: 10
+    servingsUnit: people
+
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body:
+    id: 2
+    name: Potato Salad
+    description: Salad that is made of Potatoes and a whole lot of eggs
+    prepTime: 20
+    cookTime: 60
+    servings: 10
+    servingsUnit: people
+    steps: []
+    ingredients: []
