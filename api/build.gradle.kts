@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat.*
 
 plugins {
 	id("org.springframework.boot") version "2.5.0-M1"
@@ -38,6 +40,9 @@ dependencyManagement {
 contracts {
 	setTestFramework(org.springframework.cloud.contract.verifier.config.TestFramework.JUNIT5)
 	setContractsDslDir(file("${project.projectDir}/../contracts/recipe-api/"))
+	//setBasePackageForTests("com.mwcaisse.examples.scc.recipeapi.contract")
+	//setPackageWithBaseClasses("com.mwcaisse.examples.scc.recipeapi.contract")
+	setBaseClassForTests("com.mwcaisse.examples.scc.recipeapi.contract.BaseContractTest")
 }
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
@@ -46,6 +51,18 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
+tasks.assemble {
+	dependsOn("contractTest", "test")
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
+	testLogging {
+		events(PASSED, FAILED, STANDARD_ERROR, SKIPPED)
+		exceptionFormat = FULL
+		showExceptions = true
+		showCauses = true
+		showStackTraces = true
+		outputs.upToDateWhen {false}
+	}
 }

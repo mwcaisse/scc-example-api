@@ -6,7 +6,8 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 
-@RestController("/api/recipe/")
+@RestController()
+@RequestMapping("/api/recipe/")
 class RecipeController(private val recipeService: RecipeService) {
 
     @GetMapping("{id}")

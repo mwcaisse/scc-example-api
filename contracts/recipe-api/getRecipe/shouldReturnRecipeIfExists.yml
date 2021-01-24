@@ -10,12 +10,12 @@ response:
     Content-Type: application/json
   body:
     id: 1
-    name: Fluffy Panckes
-    descriptions: They are pancakes, what else do you need to know?
+    name: Fluffy Pancakes
+    description: They are pancakes, what else do you need to know?
     prepTime: 5
     cookTime: 20
     servings: 6
-    servingsUnit: panckes
+    servingsUnit: pancakes
     steps:
       - id: 1
         order: 1
