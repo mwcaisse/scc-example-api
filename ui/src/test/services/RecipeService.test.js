@@ -89,3 +89,160 @@ describe("createRecipe", () => {
 });
 
 
+describe("deleteRecipe", () => {
+
+    test("shouldDeleteRecipeIfExists", async () => {
+        await recipeService.deleteRecipe(1);
+        //it shouldn't throw an exception, and we should make it to this point
+        expect(true).toBeTruthy();
+    });
+
+    test("shouldReturnNotFoundWhenRecipeDoesNotExist", async () => {
+        try {
+            await recipeService.deleteRecipe(500);
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(404);
+        }
+    })
+
+});
+
+describe("addStep", () => {
+
+    test("shouldReturnBadRequestIfStepInvalid", async () => {
+        try {
+            await recipeService.addStep(1, {
+                order: 1,
+                description: null
+            });
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(400);
+        }
+    });
+
+    test("shouldReturnNotFoundRecipeDoesNotExist", async () => {
+        try {
+            await recipeService.addStep(500, {
+                order: 1,
+                description: "Peel all dem potats"
+            });
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(404);
+        }
+    })
+
+    test("shouldReturnOkIfValidStepWasCreated", async () => {
+        let step = await recipeService.addStep(1, {
+            order: 1,
+            description: "Peel all dem potats"
+        });
+
+        expect(step).toBeDefined();
+
+        expect(step.id).toBeDefined();
+        expect(step.order).toBeDefined();
+        expect(step.description).toBeDefined();
+    })
+});
+
+describe("addIngredient", () => {
+
+    test("shouldReturnBadRequestIfIngredientInvalid", async () => {
+        try {
+            await recipeService.addIngredient(1, {
+                description: null
+            });
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(400);
+        }
+    });
+
+    test("shouldReturnNotFoundRecipeDoesNotExist", async () => {
+        try {
+            await recipeService.addIngredient(500, {
+                description: "Peel all dem potats"
+            });
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(404);
+        }
+    })
+
+    test("shouldReturnOkIfValidIngredientWasCreated", async () => {
+        let ingredient = await recipeService.addIngredient(1, {
+            description: "10 Large Potatoes, unpeeled"
+        });
+
+        expect(ingredient).toBeDefined();
+
+        expect(ingredient.id).toBeDefined();
+        expect(ingredient.description).toBeDefined();
+    })
+});
+
+describe("deleteStep", () => {
+
+    test("shouldReturnNotFoundWhenRecipeDoesNotExist", async () => {
+        try {
+            await recipeService.deleteStep(500, 1);
+            expect(true).toBeFalsy();
+        } catch (e) {
+            expect(e.response.status).toBe(404);
+        }
+    });
+
+    test("shouldReturnNotFoundWhenStepDoesNotExist", async () => {
+        try {
+            await recipeService.deleteStep(1, 5);
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(404);
+        }
+    });
+
+    test("shouldReturnOkWhenStepWasDeleted", async () => {
+        await recipeService.deleteStep(1, 1);
+        expect(true).toBeTruthy();
+    })
+
+
+});
+
+describe("deleteIngredient", () => {
+
+    test("shouldReturnNotFoundWhenRecipeDoesNotExist", async () => {
+        try {
+            await recipeService.deleteIngredient(500, 1);
+            expect(true).toBeFalsy();
+        } catch (e) {
+            expect(e.response.status).toBe(404);
+        }
+    });
+
+    test("shouldReturnNotFoundWhenIngredientDoesNotExist", async () => {
+        try {
+            await recipeService.deleteIngredient(1, 5);
+            expect(true).toBeFalsy();
+        }
+        catch (e) {
+            expect(e.response.status).toBe(404);
+        }
+    });
+
+    test("shouldReturnOkWhenIngredientWasDeleted", async () => {
+        await recipeService.deleteIngredient(1, 1);
+        expect(true).toBeTruthy();
+    })
+
+
+});
